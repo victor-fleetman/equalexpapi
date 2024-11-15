@@ -21,16 +21,16 @@ def get_gists(username):
         
         gists = response.json()
         
-        # Extract gist information
-        gist_info = []
+        # Obtain the gist list
+        gists_list = []
         for gist in gists:
-            gist_info.append({
+            gists_list.append({
                 "id": gist["id"],
                 "url": gist["html_url"],
                 "description": gist["description"]
             })
         
-        return jsonify({"gists": gist_info})
+        return jsonify({"gists": gists_list})
     
     except requests.exceptions.RequestException as e:
         # Handle API request errors
